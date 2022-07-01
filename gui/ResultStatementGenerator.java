@@ -61,12 +61,12 @@ public class ResultStatementGenerator extends JFrame {
 		
 		//group 1 name label
 		JLabel group1NameLabel = new JLabel("Enter Group 1 Name");
-		group1NameLabel.setBounds(137, 78, 115, 14);
+		group1NameLabel.setBounds(137, 78, 169, 14);
 		contentPane.add(group1NameLabel);
 		
 		//group 1 mean label
 		JLabel group1MeanLabel = new JLabel("Enter Group 1 Mean");
-		group1MeanLabel.setBounds(137, 165, 104, 14);
+		group1MeanLabel.setBounds(137, 165, 169, 14);
 		contentPane.add(group1MeanLabel);
 		
 		//group 1 standard deviation label
@@ -76,7 +76,7 @@ public class ResultStatementGenerator extends JFrame {
 		
 		//group 2 name label
 		JLabel group2NameLabel = new JLabel("Enter Group 2 Name");
-		group2NameLabel.setBounds(680, 78, 104, 14);
+		group2NameLabel.setBounds(680, 78, 150, 14);
 		contentPane.add(group2NameLabel);
 		
 		//group 2 mean label
@@ -164,19 +164,23 @@ public class ResultStatementGenerator extends JFrame {
 		contentPane.add(pValueInput);
 		pValueInput.setColumns(10);
 		
+		//Significant Result Statement Label
 		JLabel resultStatement1Label = new JLabel("Significant Result Statement");
 		resultStatement1Label.setBounds(426, 538, 294, 14);
 		contentPane.add(resultStatement1Label);
 		
+		//Not Significant Result Statement Label
 		JLabel resultStatement2 = new JLabel("Not Significant Result Statement");
 		resultStatement2.setBounds(402, 617, 361, 14);
 		contentPane.add(resultStatement2);
 		
+		//Significant Result Statement Text Box
 		sigStatement = new JTextField();
 		sigStatement.setBounds(154, 563, 675, 20);
 		contentPane.add(sigStatement);
 		sigStatement.setColumns(10);
 		
+		//Not Significant Result Statement Text Box
 		nonSigStatement = new JTextField();
 		nonSigStatement.setBounds(154, 661, 675, 20);
 		contentPane.add(nonSigStatement);
