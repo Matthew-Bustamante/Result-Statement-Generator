@@ -29,6 +29,8 @@ public class ResultStatementGenerator extends JFrame {
 	private JTextField tValueInput;
 	private JTextField dfValueInput;
 	private JTextField pValueInput;
+	private JTextField sigStatement;
+	private JTextField nonSigStatement;
 
 	/**
 	 * Launch the application.
@@ -51,7 +53,7 @@ public class ResultStatementGenerator extends JFrame {
 	 */
 	public ResultStatementGenerator() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1010, 614);
+		setBounds(100, 100, 1054, 798);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -69,7 +71,7 @@ public class ResultStatementGenerator extends JFrame {
 		
 		//group 1 standard deviation label
 		JLabel group1SDLabel = new JLabel("Enter Group 1 Standard Deviation");
-		group1SDLabel.setBounds(137, 302, 173, 14);
+		group1SDLabel.setBounds(101, 302, 205, 14);
 		contentPane.add(group1SDLabel);
 		
 		//group 2 name label
@@ -84,28 +86,28 @@ public class ResultStatementGenerator extends JFrame {
 		
 		//group 2 standard deviation label
 		JLabel group2STDLabel = new JLabel("Enter Group 2 Standard Deviation");
-		group2STDLabel.setBounds(692, 302, 179, 14);
+		group2STDLabel.setBounds(661, 302, 221, 14);
 		contentPane.add(group2STDLabel);
 		
 		//p-value label
 		JLabel pValueLabel = new JLabel("Enter p-value");
-		pValueLabel.setBounds(692, 408, 93, 14);
+		pValueLabel.setBounds(444, 302, 93, 14);
 		contentPane.add(pValueLabel);
 		
 		//t-value label
 		JLabel tValueLabel = new JLabel("Enter t-value");
-		tValueLabel.setBounds(154, 408, 85, 14);
+		tValueLabel.setBounds(452, 78, 85, 14);
 		contentPane.add(tValueLabel);
 		
 		//d.f. label
 		JLabel dfValueLabel = new JLabel("Enter d.f Value");
-		dfValueLabel.setBounds(452, 408, 93, 14);
+		dfValueLabel.setBounds(436, 165, 93, 14);
 		contentPane.add(dfValueLabel);
 		
 		//title label
 		JLabel title = new JLabel("Result Statement Generator");
 		title.setFont(new Font("Times New Roman", Font.BOLD, 17));
-		title.setBounds(417, 27, 237, 14);
+		title.setBounds(372, 27, 237, 14);
 		contentPane.add(title);
 		
 		//group 1 name
@@ -146,21 +148,39 @@ public class ResultStatementGenerator extends JFrame {
 		
 		//t-value
 		tValueInput = new JTextField();
-		tValueInput.setBounds(137, 438, 86, 20);
+		tValueInput.setBounds(436, 113, 86, 20);
 		contentPane.add(tValueInput);
 		tValueInput.setColumns(10);
 		
 		//d.f. value
 		dfValueInput = new JTextField();
-		dfValueInput.setBounds(448, 438, 86, 20);
+		dfValueInput.setBounds(436, 204, 86, 20);
 		contentPane.add(dfValueInput);
 		dfValueInput.setColumns(10);
 		
 		//p-value
 		pValueInput = new JTextField();
-		pValueInput.setBounds(680, 438, 86, 20);
+		pValueInput.setBounds(436, 327, 86, 20);
 		contentPane.add(pValueInput);
 		pValueInput.setColumns(10);
+		
+		JLabel resultStatement1Label = new JLabel("Significant Result Statement");
+		resultStatement1Label.setBounds(426, 538, 294, 14);
+		contentPane.add(resultStatement1Label);
+		
+		JLabel resultStatement2 = new JLabel("Not Significant Result Statement");
+		resultStatement2.setBounds(402, 617, 361, 14);
+		contentPane.add(resultStatement2);
+		
+		sigStatement = new JTextField();
+		sigStatement.setBounds(154, 563, 675, 20);
+		contentPane.add(sigStatement);
+		sigStatement.setColumns(10);
+		
+		nonSigStatement = new JTextField();
+		nonSigStatement.setBounds(154, 661, 675, 20);
+		contentPane.add(nonSigStatement);
+		nonSigStatement.setColumns(10);
 		
 		//Generate Button
 		JButton generateButton = new JButton("Generate");
@@ -176,14 +196,16 @@ public class ResultStatementGenerator extends JFrame {
 				String dfValue = dfValueInput.getText();
 				String pValue = pValueInput.getText();
 			
-				Statement generator = new Statement(group1Name, group2Name, group1Mean,group2Mean, group1SD, group2SD, tValue, dfValue, pValue);
+				Statement generator = new Statement();
 				
-				JOptionPane.showMessageDialog(null, "Significant Reuslt Statement: " + generator.createSignificantStatement() + "\n" +  "Not Significant Result Statement: "+ 
-				generator.createNotSignificantStatment());
+				sigStatement.setText(generator.createSignificantStatement(group1Name, group2Name, group1Mean, group2Mean, group1SD, group2SD, tValue, dfValue, pValue));
+				nonSigStatement.setText(generator.createNotSignificantStatment(group1Name, group2Name, group1Mean, group2Mean, group1SD, group2SD, tValue, dfValue, pValue));
 				
 			}
 		});
-		generateButton.setBounds(448, 489, 97, 41);
+		generateButton.setBounds(436, 371, 97, 41);
 		contentPane.add(generateButton);
+		
+		
 	}
 }

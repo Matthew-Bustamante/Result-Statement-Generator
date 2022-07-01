@@ -1,4 +1,5 @@
 package statementCode;
+import statementCode.DataTransfer;
 /**
  * 
  * @author Matthew Bustamante
@@ -7,6 +8,7 @@ package statementCode;
  */
 public class Statement{
 	//Instance Variables
+	/*
 	private String group1Name;
 	private String group2Name;
 	private String mean1;
@@ -16,7 +18,7 @@ public class Statement{
 	private String tValue;
 	private String dfValue;
 	private String pValue;
-	
+	/*
 	
 	/**
 	 * 
@@ -30,16 +32,7 @@ public class Statement{
 	 * @param df value
 	 * @param p-value
 	 */
-	public Statement(String groupOneName, String groupTwoName, String g1Mean, String g2Mean, String g1SD, String g2SD, String tVal, String dfVal, String pVal) {
-		group1Name = groupOneName;
-		group2Name = groupTwoName;
-		mean1 = g1Mean;
-		mean2 = g2Mean;
-		stdev1 = g1SD;
-		stdev2 = g2SD;
-		tValue = tVal;
-		dfValue = dfVal;
-		pValue = pVal;
+	public Statement() {
 		
 		
 	}
@@ -47,7 +40,18 @@ public class Statement{
 	 * createSignificantStatement creates a string with the significant result statement and returns it
 	 * @return Significant Result Statement
 	 */
-	public String createSignificantStatement() {
+	public String createSignificantStatement(String group1Name, String group2Name, String mean1, String mean2, String stdev1, String stdev2, String tValue, String dfValue, String pValue) {
+		DataTransfer pojo = new DataTransfer();
+		pojo.setGroup1Name(group1Name);
+		pojo.setGroup2Name(group2Name);
+		pojo.setMean1(mean1);
+		pojo.setMean2(mean2);
+		pojo.setSD1(stdev1);
+		pojo.setSD2(stdev2);
+		pojo.setTValue(tValue);
+		pojo.setDFValue(dfValue);
+		pojo.setPValue(pValue);
+		
 		String statement = "The mean of " + group1Name +" (" + mean1 + " ± " + stdev1 + ")" +" is significantly different than that of "
 	+ group2Name + " (" + mean2 + " ± " + stdev2 + ") (t-value =" + tValue + ", d.f. =" + dfValue + ", p =" + pValue + ")";
 		
@@ -58,7 +62,17 @@ public class Statement{
 	 * createNotSignificantStatement method that creates a string with the non significant result statement and returns it
 	 * @return Non-significant result statement
 	 */
-	public String createNotSignificantStatment() {
+	public String createNotSignificantStatment(String group1Name, String group2Name, String mean1, String mean2, String stdev1, String stdev2, String tValue, String dfValue, String pValue) {
+		DataTransfer pojo = new DataTransfer();
+		pojo.setGroup1Name(group1Name);
+		pojo.setGroup2Name(group2Name);
+		pojo.setMean1(mean1);
+		pojo.setMean2(mean2);
+		pojo.setSD1(stdev1);
+		pojo.setSD2(stdev2);
+		pojo.setTValue(tValue);
+		pojo.setDFValue(dfValue);
+		pojo.setPValue(pValue);
 		String statement = "The mean of " + group1Name +" (" + mean1 + " ± " + stdev1 + ")" +" is not significantly different than that of "
 	+ group2Name + " (" + mean2 + " ± " + stdev2 + ") (t-value =" + tValue + ", d.f. =" + dfValue + ", p =" + pValue + ")";
 	

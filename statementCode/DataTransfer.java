@@ -59,4 +59,40 @@ public class DataTransfer {
 	public void setPValue(String newPValue) {
 		pValue = newPValue;
 	}
+	
+	public String getGroup1Name() {
+		return group1Name;
+	}
+	
+	public String getGroup2Name() {
+		return group2Name;
+	}
+	
+	public String getMean1() {
+		return mean1;
+	}
+	
+	public String getMean2() {
+		return mean2;
+	}
+	
+	public String getSD1() {
+		return stdev1;
+	}
+	
+	public String getSD2() {
+		return stdev2;
+	}
+	
+	public String getTValue() {
+		return tValue;
+	}
+	
+	public String getDFValue() {
+		return dfValue;
+	}
+	
+	public String getPValue() {
+		return pValue;
+	}
 }
